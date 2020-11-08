@@ -45,6 +45,8 @@ class CompaniesControllerTest < ApplicationSystemTestCase
   test "Create" do
     visit new_company_path
 
+    refute_text("Delete Company")
+
     within("form#new_company") do
       fill_in("company_name", with: "New Test Company")
       fill_in("company_zip_code", with: "28173")
@@ -60,4 +62,16 @@ class CompaniesControllerTest < ApplicationSystemTestCase
     assert_equal "28173", last_company.zip_code
   end
 
+  test "Destroy" do
+    visit edit_company_path(@company)
+
+    assert_difference("Company.count", -1) do
+      accept_alert do
+        click_link "Delete Company"
+      end
+
+      refute_text "Hometown Painting"
+      assert_equal companies_path, current_path
+    end
+  end
 end
