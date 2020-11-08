@@ -76,6 +76,12 @@ Write up a proposed challenge to add to this repository for assessing developers
 
 _Assessing: Engineering instinct, writing, ability to document up a deliverable concisely._
 
+### **☐ Add endless pagination to companies page**
+
+Implement endless pagination for Companies Index. You can hook to the `scroll` event on the `body` element to listen to scroll events. We are not looking for edge cases, just something that can load new records and append at the end of the list on a single `scroll` event should be ok for this challenge.
+
+_Assessing: Full stack skills, JavaScript, Turbolinks._
+
 ## Bonus Points
 
 - Clean code that follows strong Rails Conventions
