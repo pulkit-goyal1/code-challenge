@@ -21,7 +21,7 @@ class CompaniesControllerTest < ApplicationSystemTestCase
     assert_text @company.name
     assert_text @company.phone
     assert_text @company.email
-    assert_text "City, State"
+    assert_text "Ventura, CA"
   end
 
   test "Update" do
@@ -29,7 +29,7 @@ class CompaniesControllerTest < ApplicationSystemTestCase
 
     within("form#edit_company_#{@company.id}") do
       fill_in("company_name", with: "Updated Test Company")
-      fill_in("company_zip_code", with: "93009")
+      fill_in("company_zip_code", with: "94043")
       click_button "Update Company"
     end
 
@@ -37,7 +37,9 @@ class CompaniesControllerTest < ApplicationSystemTestCase
 
     @company.reload
     assert_equal "Updated Test Company", @company.name
-    assert_equal "93009", @company.zip_code
+    assert_equal "94043", @company.zip_code
+    assert_equal "Mountain View", @company.city
+    assert_equal "CA", @company.state
   end
 
   test "Create" do
